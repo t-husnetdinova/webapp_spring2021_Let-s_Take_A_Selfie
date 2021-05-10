@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Let's Take a Selfie! </title>
+    <link rel="icon" type="image/svg" href="img/wink-svgrepo-com.svg">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-light navbar-expand-sm justify-content-left" style="background-color: #ffffff;">
+
+        <a class="nav-link" href="#"> </a>
+
+        <a class="navbar-brand text-left" href="/">
+            <img src="img/wink-svgrepo-com.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+            Let's Take a Selfie!
+        </a>
+    </nav>
+
+    <!-- LOG IN MODAL -->
+    <div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+                <!-- HEADER -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"> &times; </span>
+                    </button>
+                </div>
+
+                <!-- BODY -->
+                <div class="modal-body text-center">
+
+                    <!-- Log in form -->
+                    <form action="/" method="POST" class="needs-validation" novalidate>
+                        <!-- Form Styling-->
+                        <img src="img/smile-svgrepo-com.svg" width="100" height="100" class="d-inline-block align-top"
+                            alt="">
+                        <h2 class="h3 mb-3 font-weight-normal"> Welcome Back! </h2>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email"
+                                required>
+                            <div class="invalid-feedback small-text">
+                                Please enter a valid email address.
+                            </div>
+                            <!-- Forgot Username -->
+                            <div class="text-right small-text">
+                                <span class="forgot-username text-right">
+                                    <a href="index.html" title="Forgot Username" id="link-reset-username"> Forgot
+                                        Username? </a>
+                                </span> <br>
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" id="inputPassword"
+                                placeholder="Password" required>
+                            <div class="invalid-feedback small-text">
+                                Please enter a password.
+                            </div>
+                            <!-- Forgot Password -->
+                            <div class="text-right small-text">
+                                <span class="forgot-password text-right">
+                                    <a href="index.html" title="Forgot Password" id="link-reset-password"> Forgot
+                                        Password? </a>
+                                </span> <br>
+                            </div>
+                        </div>
+
+                        <!-- Check Box -->
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1"> Remember Me </label>
+                        <br> <br>
+
+                        <!-- Buttons -->
+                        <button type="submit" class="btn btn-primary btn-block"> Submit </button>
+                        <button type="reset" class="btn btn-secondary btn-block btn-sm"> Reset </button>
+
+                        <span class="no-account small-text">
+                            <a href="/" title="Sign Up" id="link-signup">No account? Sign up!</a>
+                        </span>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIGN UP MODAL -->
+    <div class="modal" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+                <!-- HEADER -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"> &times; </span>
+                    </button>
+                </div>
+
+                <!-- BODY -->
+                <div class="modal-body text-center">
+
+                    <!-- Sign Up form -->
+                    <form action="/signup" method="POST" class="needs-validation"
+                        oninput='confirmPassword.setCustomValidity(confirmPassword.value != password.value ? "Passwords do not match." : "")'
+                        novalidate>
+
+                        <!-- Form Styling -->
+                        <img src="img/happy-emoji-svgrepo-com.svg" width="100" height="100"
+                            class="d-inline-block align-top" alt="">
+                        <h2 class="h3 mb-3 font-weight-normal"> Welcome! </h2>
+
+                        <!-- ROW 1 FIRST/LAST/DoB -->
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="firstName" class="form-control" placeholder="First name"
+                                    required>
+                                <div class="invalid-feedback small-text">
+                                    Please enter a first name.
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" name="lastName" class="form-control" placeholder="Last name"
+                                    required>
+                                <div class="invalid-feedback small-text">
+                                    Please enter a last name.
+                                </div>
+                            </div>
+                            <div class="col" id="date-div">
+                                <input type="date" name="dateOfBirth" id="dob" class="form-control" required>
+                                <div class="invalid-feedback small-text">
+                                    Please enter a valid date.
+                                </div>
+                            </div>
+                        </div> <br>
+
+                        <!-- ROW 2 USERNAME/EMAIL-->
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="username" class="form-control" placeholder="Username" required>
+                                <div class="invalid-feedback small-text">
+                                    Please enter your username.
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                <div class="invalid-feedback small-text">
+                                    Please enter a valid email.
+                                </div>
+                            </div>
+                        </div> <br>
+
+                        <!-- ROW 3 PASSWORDS -->
+                        <div class="row" id="passwordDiv">
+                            <div class="col">
+                                <input type="password" name="password" id="password-sign-up" class="form-control"
+                                    placeholder="Password" required>
+                                <div class="invalid-feedback small-text">
+                                    Please enter your password.
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="password" name="confirmPassword" id="password-confirm" class="form-control"
+                                    placeholder="Confirm password" required>
+                                <div class="invalid-feedback small-text">
+                                    Please confirm you password.
+                                </div>
+                            </div>
+                        </div> <br>
+
+                        <!-- NEEDS 3 SECURITY QUESTIONS HERE-->
+                        Security Questions <br>
+                        <fieldset class="borderless">
+                            <div class="security-question-dropdown" id="security1">
+                                <select class="form-control" name="securityQuestion1" required>
+                                    <option selected disabled value=""> Question 1 </option>
+                                    <option value="1">What was your childhood nickname?</option>
+                                    <option value="2">What is your oldest cousin's first and last name?</option>
+                                    <option value="3">What was the last name of your third grade teacher?
+                                    </option>
+                                    <option value="4">In what city or town was your first job?</option>
+                                    <option value="5">In what city or town did your mother and father meet?
+                                    </option>
+                                </select>
+                            </div>
+                            <input type="text" name="securityAnswer1" class="form-control" placeholder="Answer"
+                                required>
+                            <div class="invalid-feedback small-text">
+                                Please choose and answer this security question.
+                            </div>
+                        </fieldset> <br>
+
+                        <fieldset class="borderless">
+                            <div class="security-question-dropdown" id="security2">
+                                <select class="form-control" name="securityQuestion2" required>
+                                    <option selected disabled value=""> Question 2 </option>
+                                    <option value="1">What was your childhood nickname?</option>
+                                    <option value="2">What is your oldest cousin's first and last name?</option>
+                                    <option value="3">What was the last name of your third grade teacher?
+                                    </option>
+                                    <option value="4">In what city or town was your first job?</option>
+                                    <option value="5">In what city or town did your mother and father meet?
+                                    </option>
+                                </select>
+                            </div>
+                            <input type="text" name="securityAnswer2" class="form-control" placeholder="Answer"
+                                required>
+                            <div class="invalid-feedback small-text">
+                                Please choose and answer this security question.
+                            </div>
+                        </fieldset> <br>
+
+                        <fieldset class="borderless">
+                            <div class="security-question-dropdown" id="security3">
+                                <select class="form-control" name="securityQuestion3" required>
+                                    <option selected disabled value=""> Question 3 </option>
+                                    <option value="1">What was your childhood nickname?</option>
+                                    <option value="2">What is your oldest cousin's first and last name?</option>
+                                    <option value="3">What was the last name of your third grade teacher?
+                                    </option>
+                                    <option value="4">In what city or town was your first job?</option>
+                                    <option value="5">In what city or town did your mother and father meet?
+                                    </option>
+                                </select>
+                            </div>
+                            <input type="text" name="securityAnswer3" class="form-control" placeholder="Answer"
+                                required>
+                            <div class="invalid-feedback small-text">
+                                Please choose and answer this security question.
+                            </div>
+                        </fieldset> <br>
+
+                        <!-- Buttons -->
+                        <button type="submit" class="btn btn-primary btn-block"> Submit </button>
+                        <button type="reset" class="btn btn-secondary btn-block btn-sm"> Reset </button>
+
+                        <span class="no-account small-text">
+                            <a href="/" title="Sign Up" id="link-have-account"> Already have an account? Sign
+                                in!</a>
+                        </span>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR ACCOUNT INTERACTIONS-->
+    <div>
+        <% if (loggedIn) { %>
+            <div class="nav-item dropdown login text-right">
+                <button type="button" class="btn btn-outline-line dropdown-toggle dropdown-toggle-split"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= currentUser.username %>
+                    <img src="img/Blank_face.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="/account">Account</a>
+                    <a class="dropdown-item" href="/settings">Settings</a>
+                    <div class="dropdown-divider"> </div>
+                    <a class="dropdown-item" href="/logout">Sign Out</a>
+                </div>
+            </div>
+            
+        <% } else { %>
+        <div class="btn-group login text-right">
+            <div>
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#loginModal">Log In</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal"> Sign Up</button>
+            </div>  
+            <div class="nav-item dropdown">
+                <button type="button" class="btn btn-outline-line dropdown-toggle dropdown-toggle-split"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="img/Blank_face.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" data-toggle="modal" data-target="#loginModal"> Log in </a>
+                    <a class="dropdown-item" data-toggle="modal" data-target="#signUpModal"> Sign up </a>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+
+    <div>
+        <div class="flashes mx-auto">
+            <% if(flashMessages) { %>
+                <% if(flashMessages.success) { %>
+                    <div class="flash">
+                        <%= flashMessages.success %>
+                    </div>
+                    <% } else if(flashMessages.error) { %>
+                        <div class="flash">
+                            <%= flashMessages.error %>
+                        </div>
+                        <% } %>
+                            <% } %>
+        </div>
+    </div>
+
+    <div>
+        <%- body %>
+    </div>
+    
+
+    <footer>
+        <br><br>
+    </footer>
+
+    <!-- Bootystrap things -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script></script>
+
+    <!-- bootstrap validation script -->
+    <script>
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+
+</body>
+
+</html>

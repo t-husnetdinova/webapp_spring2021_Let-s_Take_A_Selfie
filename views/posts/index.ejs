@@ -1,0 +1,70 @@
+<% if (loggedIn) { %>
+    <a data-toggle="modal" data-target="#postModal">
+        <img src="img/Post_face.svg" width="150" height="150" class="post-button" alt="">
+    </a>
+    <% } %>
+
+        <div class="text-center">
+            <h2>Posts Feed</h2>
+        </div>
+
+
+
+        <div>
+            <% posts.forEach(post=> { %>
+                <div>
+                    <div class="card mx-auto homepage text-left">
+                        <div class="card-header">
+
+                            <a href="<%= `/posts/${post._id}` %>">
+                                <%= post.title %>
+                            </a>
+                        </div>
+                        <div class="card-body">
+
+                            <p class="card-text">
+                                <%= post.description %>
+                            </p>
+                        </div>
+
+                        <div class="card-footer text-muted text-right">
+                            <a href="<%= `/posts/${post._id}/edit` %>" class="badge badge-primary">Edit</a>
+                            <a href="<%= `/posts/${post._id}/delete?_method=DELETE` %>"
+                                onClick="return confirm('Are you sure?')" class="badge badge-secondary">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+
+        <div class="modal" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+
+                    <!-- HEADER -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"> &times; </span>
+                        </button>
+                    </div>
+
+                    <!-- BODY -->
+                    <div class="modal-body text-center">
+                        <!-- Log in form -->
+                        <form action="/posts/create" method="POST" class="needs-validation" novalidate>
+                            <!-- Form Styling-->
+                            <img src="img/wink-svgrepo-com.svg" width="100" height="100"
+                                class="d-inline-block align-top" alt="">
+                            <h2 class="h3 mb-3 font-weight-normal"> Let's take a Selfie! </h2>
+                            <input type="text" name="title" id="txtTitle" class="form-control" placeholder="Title"
+                                autofocus required> <br>
+
+                            <input type="text" name="description" id="txtDescription" class="form-control"
+                                placeholder="Text" required> <br>
+
+                            <button class="btn btn-primary" type="submit"> Post! </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,17 @@
+<div class="form-data text-center justify-content-center">
+    <form action="<%= `/posts/${post._id}/update?_method=PUT`%>" method="POST">    
+
+        <!-- Form Styling-->
+        <img src="public/img/thinking-emoji-svgrepo-com.svg" width="100" height="100" class="d-inline-block align-top"
+        alt="">
+        <h2 class="h3 mb-3 font-weight-normal"> Edit Post </h2>
+
+        <label for="txtTitle">Title</label>
+        <input class="form-control page-form" type="text" name="title" id="txtTitle" autofocus required value="<%= post.title %>"> <br>
+
+        <label for="txtDescription">Text</label>
+        <input class="form-control page-form" type="text" name="description" id="txtDescription" required value="<%= post.description %>"> <br>
+
+        <button class="btn btn-primary" type="submit">Save</button>
+    </form>
+</div>
