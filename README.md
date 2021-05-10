@@ -28,6 +28,7 @@ Another notable warning is the embedded javascript using special characters that
 **Sources:** <br>
 COMING SOON
 <br>
+<br>
 **Instructions for running program:** Please download the code, run `npm install`, then seed the database by running `node seed.js`, then run `npm start`. <br>
 <br>
 **Check it out:** COMING SOON <br>
