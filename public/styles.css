@@ -1,11 +1,11 @@
-html {
-  max-width: 100%;
-  overflow-x: hidden;
+@font-face {
+  font-family: "Asdonuts";
+  src: url("Asdonuts.ttf") format("truetype");
 }
 
-body {
-    background-color:#dae2e4;
-    margin-top: 70px; /* Add a top margin to avoid content overlay */
+body {    
+    background-color:#f8f8f8;
+    margin-top: 90px; /* Add a top margin to avoid content overlay */
     z-index:2;
     max-width: 100%;
     overflow-x: hidden;
@@ -28,30 +28,31 @@ hr {
   background: #17D654;
 }
 
-.security-question-dropdown{
-  padding-bottom: 10px;
-}
-
-.small-text{
-    font-size: smaller;
+.asdonuts{
+  font-family: "Asdonuts";
+  letter-spacing: 1px;
 }
 
 /* Other Stuff */
 .btn{
     margin-left:10px;
+    border-radius: 20px;
  }
 
 .navbar {
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
+    height: 75px;
     width: 100%; /* Full width */
     z-index: 2;
+    border-bottom: 1px solid #e2e2e2;
   }
 
 .home-container {
     width: 100%;
     height: auto;
 }
+
 .homepage {
     width: 65%; /*Takes 90% width from home-container*/
     height: auto;
@@ -90,7 +91,7 @@ hr {
   padding: 20px;
   size: 100px;
   z-index:3;
-  filter: drop-shadow(5px 5px 12px rgb(116, 116, 116, 0.5));
+  filter: drop-shadow(3px 3px 0px rgba(80, 80, 80, 0.25));
 }
 
 .post-button:hover {
@@ -135,6 +136,7 @@ hr {
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
+
 @keyframes cssAnimation {
   to {
       width:0;
@@ -153,7 +155,7 @@ hr {
 .login {
   position: fixed;
   right: 30px;
-  top: 5px;
+  top: 15px;
   padding: 3px;
   background: #ffffff;
   border-radius: 0px;
