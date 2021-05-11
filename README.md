@@ -61,7 +61,6 @@ https://mongoosejs.com/docs/middleware.html#pre <br>
 https://dev.to/albertomontalesi/add-dark-mode-to-your-website-with-just-a-few-lines-of-code-5baf <br>
 https://www.w3schools.com/cssref/pr_text_letter-spacing.asp <br>
 <br>
-<br>
 **Instructions for running program:** Please download the code, run `npm install`, then seed the database by running `node seed.js`, then run `npm start`. <br>
 <br>
 **Check it out:** COMING SOON <br>
