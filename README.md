@@ -25,9 +25,8 @@ A4: We let ourselves have some fun by making creative design choices that were o
 <br>
 Final: COMING SOON
 <br>
-
 <br>
-**Extra features:** COMING SOON <br>
+**Extra features:** <br>
 A1: Although it was not required, we decided to challenge ourselves by using bootstrap features that were new to both if us, such as modals for our sign in/sign up, pagination for search results, and dropdown menus for the homepage and search filtering. We decided to create links/references between our dummy/mockup pages, so clicking search would lead to the search results page, just like clicking on settings in the main nav bar wwould lead to a settings page. With some extra time and momentum we picked up toward the due date, we decided to get a head start on some javascript by adding a button that would allow for frictionless scrolling back to the top of the page. Bootstrap also came in handy for styling the button itself. Finally, as another extra feature, we created a separate directory for any images that will be used in this project, making for a cleaner and more organized working tree.
 <br>
 A2: We added an extra portion of dynamicity to the project by introducing Vue.js for visual infrastructure. We have a working "Show More" button at the bottom of the posts page that loads in additional posts. This is similar to the pagination done in Part 1, but has its own flavor and more closely matches the Reddit feel we are going for.
@@ -38,9 +37,9 @@ A4: Extra features include an adaptive navbar that will look different if you're
 <br>
 Final: COMING SOON
 <br>
-
 <br>
-**Nu HTML Checker status:** For the current build, there were no  .html files to put through the checker. 
+**Nu HTML Checker status:** <br>
+For the current build, there were no  .html files to put through the checker. 
 However, our .ejs view files that contain html view formatting, did pass the checker with warnings about not having a doctype tag, head, or title, all of which an ejs file does not need. So we are good there! <br>
 One nuance is that we do not yet have a working search function for searching posts, so we have a placeholder submit button when searching that leads to a dummy search results page (this is purely visual right now to show dynamicity). So, we do get this error with layout.ejs: <br>
 `<a href="/search" class="btn btn-outline-success my-2 my-sm-0" type="submit"> Search </a>`<br>
@@ -61,8 +60,6 @@ https://css-tricks.com/snippets/css/using-font-face/ <br>
 https://mongoosejs.com/docs/middleware.html#pre <br>
 https://dev.to/albertomontalesi/add-dark-mode-to-your-website-with-just-a-few-lines-of-code-5baf <br>
 https://www.w3schools.com/cssref/pr_text_letter-spacing.asp <br>
-
-
 <br>
 <br>
 **Instructions for running program:** Please download the code, run `npm install`, then seed the database by running `node seed.js`, then run `npm start`. <br>
