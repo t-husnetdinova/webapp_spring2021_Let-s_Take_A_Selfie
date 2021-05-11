@@ -1,17 +1,10 @@
 const express = require("express"),
     app = express(),
-    router = express.Router(),
+    router = require('./routes/index'),
     layouts = require("express-ejs-layouts"),
     mongoose = require("mongoose"),
 
-    // controllers
-    homeController = require("./controllers/homeController"),
-    errorController = require("./controllers/errorController"),
-    usersController = require("./controllers/usersController"),
     postsController = require("./controllers/postsController"),
-    // commentsController = require("./controllers/commentsController"),
-    // hashtagsController = require("./controllers/hasgtagsController"),
-    // userPostsController = require("./controllers/userPostsController")
 
     // dependencies
     methodOverride = require("method-override"),
@@ -33,22 +26,22 @@ mongoose.set("useCreateIndex", true);
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 
-router.use(methodOverride("_method", {
+app.use(methodOverride("_method", {
     methods: ["POST", "GET",]
 }));
-router.use(express.json());
+app.use(express.json());
 
-router.use(layouts);
-router.use(express.static("public"));
-router.use(expressValidator());
-router.use(
+app.use(layouts);
+app.use(express.static("public"));
+app.use(expressValidator());
+app.use(
     express.urlencoded({
         extended: false
     })
 );
 
-router.use(cookieParser("my_passcode"));
-router.use(expressSession({
+app.use(cookieParser("my_passcode"));
+app.use(expressSession({
     secret: "my_passcode",
     cookie: {
         maxAge: 360000
@@ -57,15 +50,15 @@ router.use(expressSession({
     saveUninitialized: false
 }));
 
-router.use(connectFlash());
+app.use(connectFlash());
 
-router.use(passport.initialize());
-router.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-router.use((req, res, next) => {
+app.use((req, res, next) => {
     console.log("recieved" + req.url)
     res.locals.loggedIn = req.isAuthenticated();
     res.locals.currentUser = req.user;
@@ -73,31 +66,12 @@ router.use((req, res, next) => {
     next();
 })
 
-router.get("/", postsController.index, postsController.indexView);
+// I would like to get this out of here
+// we need this here, removing causes server error
+//because posts are technically our landing page
+app.get("/", postsController.index, postsController.indexView);
+
 app.use( express.static( "../public/img" ) );
-
-// user routes
-router.post("/", usersController.authenticate);
-router.post("/signup", usersController.validate, usersController.create, usersController.redirectView);
-router.get("/logout", usersController.logout, usersController.redirectView);
-
-// other routes
-router.get("/search", homeController.results);
-router.get("/settings", homeController.settings);
-router.get("/account", homeController.account);
-
-// post routes
-router.get("/posts", postsController.index, postsController.indexView);
-router.get("/posts/new", postsController.new);
-router.post("/posts/create", postsController.create, postsController.redirectView);
-router.get("/posts/:id", postsController.show, postsController.showView);
-router.get("/posts/:id/edit", postsController.edit);
-router.put("/posts/:id/update", postsController.update, postsController.redirectView);
-router.delete("/posts/:id/delete", postsController.delete, postsController.redirectView);
-
-// error handling
-router.use(errorController.pageNotFoundError);
-router.use(errorController.internalServerError);
 
 app.use("/", router);
 
