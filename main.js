@@ -8,7 +8,10 @@ const express = require("express"),
     homeController = require("./controllers/homeController"),
     errorController = require("./controllers/errorController"),
     usersController = require("./controllers/usersController"),
-    postsController = require("./controllers/postsController")
+    postsController = require("./controllers/postsController"),
+    // commentsController = require("./controllers/commentsController"),
+    // hashtagsController = require("./controllers/hasgtagsController"),
+    // userPostsController = require("./controllers/userPostsController")
 
     // dependencies
     methodOverride = require("method-override"),
