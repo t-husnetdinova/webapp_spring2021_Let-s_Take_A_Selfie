@@ -21,8 +21,12 @@ postSchema = new Schema(
                 deafault: Date.now
             },
             hashtags: {type: [String], index: true},
-            user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
-            },
+            user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+            
+            postedBy: {
+                type: String,
+            }
+        },
         {
             timestamps: true
         }

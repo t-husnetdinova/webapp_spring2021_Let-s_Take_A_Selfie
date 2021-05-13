@@ -88,12 +88,6 @@ module.exports = {
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,
-            securityQuestion1: req.body.securityQuestion1,
-            securityAnswer1: req.body.securityAnswer1,
-            securityQuestion2: req.body.securityQuestion2,
-            securityAnswer2: req.body.securityAnswer2,
-            securityQuestion3: req.body.securityQuestion3,
-            securityAnswer3: req.body.securityAnswer3
         })
         newUser.save()
             .then(() => {

@@ -49,7 +49,7 @@ hr {
   }
 
 .home-container {
-    width: 100%;
+    width: 50%;
     height: auto;
 }
 
@@ -57,13 +57,11 @@ hr {
     width: 65%; /*Takes 90% width from home-container*/
     height: auto;
     margin-top: 30px;
-    margin-left: 100px;
-    margin-left: 150px;
 }
 
 .homepageHeader {
     width: 90%; /*Takes 90% width from home-container*/
-    margin-top: 30px;
+    margin-top: 60px;
     margin-left: 50px; /* Add a left margin */
     margin-right: 50px; /* Add a left margin */
 }
@@ -193,5 +191,9 @@ margin-top: 20px;
 }
 
 .card-date {
-  font-size: 6pt;
+  font-size: 10pt;
+}
+
+.card {
+  width: 60%;
 }

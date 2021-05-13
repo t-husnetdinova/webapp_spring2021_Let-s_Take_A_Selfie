@@ -4,11 +4,35 @@
     </a>
     <% } %>
 
-        <div class="text-center">
-            <h2>Posts Feed</h2>
+        <div class="card mx-auto homepage text-center">
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                #Hashtag1
+                            </td>
+                            <td>
+                                #Hashtag2
+                            </td>
+                            <td>
+                                #Hashtag3
+                            </td>
+                            <td>
+                                #Hashtag4
+                            </td>
+                            <td>
+                                #Hashtag5
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>
         </div>
 
-
+        <div class="text-center asdonuts">
+            <h2> Feed</h2>
+        </div>
 
         <div>
             <% posts.forEach(post=> { %>
@@ -16,9 +40,9 @@
                     <div class="card mx-auto homepage text-left">
                         <div class="card-header">
 
-                            <a href="<%= `/posts/${post._id}` %>">
-                                <%= post.title %>
-                            </a>
+                            <a href="<%= `/posts/${post._id}` %>"> <%= post.title %> </a>
+                            <p class="card-date"> Posted by: <a href="#"> <%= post.postedBy %> </a> </p>
+
                         </div>
                         <div class="card-body">
                             <p class="card-text">
@@ -33,7 +57,6 @@
                             <p class="card-text card-date">
                                 <%= post.createdAt %>
                             </p>
-                            
                         </div>
 
                         <!-- Only allow editing and deleting if logged in and owner of post-->
@@ -80,11 +103,15 @@
                                 placeholder="Hashtags" required> <br>
 
                             <!-- Extra Credit: photo upload -->
-                            <input type="file"  accept="image/*" name="image" id="file" required> <br>
+                            <input type="file"  accept="image/*" name="image" id="file" required> <br><br>
+
+                            <button class="btn btn-primary" type="submit"> Post! </button>
+
                             <p>
                                 <label for="file" style="cursor: pointer;">Let's Take a Selfie! </label>
                             </p>
-                            <button class="btn btn-primary" type="submit"> Post! </button>
+
+                            
                         </form>
                     </div>
                 </div>
