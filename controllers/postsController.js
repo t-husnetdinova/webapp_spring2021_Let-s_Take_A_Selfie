@@ -25,7 +25,8 @@ module.exports = {
             title: req.body.title,
             description: req.body.description,
             img: req.body.img,
-            hashtags: req.body.hashtags
+            hashtags: req.body.hashtags.split(" ")
+            
         });
         Post.create(newPost)
             .then(post => {

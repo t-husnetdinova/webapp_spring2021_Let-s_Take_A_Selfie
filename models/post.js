@@ -18,25 +18,9 @@ const mongoose = require("mongoose"),
                 type: Date,
                 deafault: Date.now
             },
-            hashtags: {
-                type: Array,
-                items: [{
-                        type: String
-                    },
-                    {
-                        type: String
-                    },
-                    {
-                        type: String
-                    },
-                    {
-                        type: String
-                    },
-                    {
-                        type: String
-                    }]
+
+            hashtags: {type: [String], index: true},
             },
-        },
         {
             timestamps: true
         }
