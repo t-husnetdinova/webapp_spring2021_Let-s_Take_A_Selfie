@@ -33,11 +33,12 @@
                             <p class="card-text card-date">
                                 <%= post.createdAt %>
                             </p>
+                            
                         </div>
 
                         <!-- Only allow editing and deleting if logged in and owner of post-->
                         <% if (loggedIn) { %>
-                            <% if (post._id == currentUser.post._id) { %>
+                            <% if (post.user._id == currentUser.id) { %>
                                 <div class="card-footer text-muted text-right">
                                     <a href="<%= `/posts/${post._id}/edit` %>" class="badge badge-primary">Edit</a>
                                     <a href="<%= `/posts/${post._id}/delete?_method=DELETE` %>"

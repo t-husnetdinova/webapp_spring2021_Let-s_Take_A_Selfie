@@ -1,6 +1,8 @@
 const mongoose = require("mongoose"),
     { Schema } = require("mongoose"),
-    postSchema = new Schema(
+    User = require("./user");
+    
+postSchema = new Schema(
         {
             img: {
                 data: Buffer,
@@ -19,6 +21,7 @@ const mongoose = require("mongoose"),
                 deafault: Date.now
             },
             hashtags: {type: [String], index: true},
+            user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
             },
         {
             timestamps: true
