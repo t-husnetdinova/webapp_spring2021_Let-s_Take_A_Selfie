@@ -1,30 +1,48 @@
 const mongoose = require("mongoose"),
-{ Schema } = require("mongoose"),
-postSchema = new Schema(
-    {
-        img: {
-            data: Buffer,
-            contentType: String
+    { Schema } = require("mongoose"),
+    postSchema = new Schema(
+        {
+            img: {
+                data: Buffer,
+                contentType: String
+            },
+            title: {
+                type: String,
+                required: true
+            },
+            description: {
+                type: String,
+                required: true
+            },
+            createdAt: {
+                type: Date,
+                deafault: Date.now
+            },
+            hashtags: {
+                type: Array,
+                items: [{
+                        type: String
+                    },
+                    {
+                        type: String
+                    },
+                    {
+                        type: String
+                    },
+                    {
+                        type: String
+                    },
+                    {
+                        type: String
+                    }]
+            },
         },
-        title: {
-            type: String,
-            required: true
-        },
-        description: {
-            type: String,
-            required: true
-        },
-        createdAt: {
-            type: Date,
-            deafault: Date.now
+        {
+            timestamps: true
         }
-    },
-    {
-        timestamps: true
-    }
-);
+    );
 
-postSchema.pre('save', function(next) {
+postSchema.pre('save', function (next) {
     next();
 });
 

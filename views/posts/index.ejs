@@ -27,12 +27,15 @@
                             <p class="card-text">
                                 <%= post.description %>
                             </p>
+                            <p class="card-text">
+                                <%= post.hashtags %>
+                            </p>
                             <p class="card-text card-date">
                                 <%= post.createdAt %>
                             </p>
                         </div>
 
-
+                        <!-- Only allow editing and deleting if logged in and owner of post-->
                         <% if (loggedIn) { %>
                             <% if (post._id == currentUser.post._id) { %>
                                 <div class="card-footer text-muted text-right">
@@ -66,15 +69,19 @@
                             <img src="img/wink-svgrepo-com.svg" width="100" height="100"
                                 class="d-inline-block align-top" alt="">
                             <h2 class="h3 mb-3 font-weight-normal"> Let's take a Selfie! </h2>
-                            <input type="text" name="title" id="txtTitle" class="form-control" placeholder="Title"
+                            <input type="text" name="title" id="txtTitle" class="form-control" placeholder="TItle"
                                 autofocus required> <br>
 
                             <input type="text" name="description" id="txtDescription" class="form-control"
-                                placeholder="Text" required> <br>
+                                placeholder="Description" required> <br>
 
+                            <input type="text" name="hashtags" id="txtHashtags" class="form-control"
+                                placeholder="Hashtags" required> <br>
+
+                            <!-- Extra Credit: photo upload -->
                             <input type="file"  accept="image/*" name="image" id="file" required> <br>
                             <p>
-                                <label for="file" style="cursor: pointer;">Upload Image</label>
+                                <label for="file" style="cursor: pointer;">Let's Take a Selfie! </label>
                             </p>
                             <button class="btn btn-primary" type="submit"> Post! </button>
                         </form>

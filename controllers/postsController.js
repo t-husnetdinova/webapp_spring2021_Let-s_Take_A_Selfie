@@ -24,7 +24,8 @@ module.exports = {
         let newPost = new Post({
             title: req.body.title,
             description: req.body.description,
-            img: req.body.img
+            img: req.body.img,
+            hashtags: req.body.hashtags
         });
         Post.create(newPost)
             .then(post => {
@@ -78,6 +79,8 @@ module.exports = {
         var updatedPost = {};
         updatedPost.title = req.body.title;
         updatedPost.description =  req.body.description;
+        updatedPost.img =  req.body.img;
+        updatedPost.hashtags =  req.body.hashtags;
         // other potential field that can be edited
 
         Post.findByIdAndUpdate(postId, updatedPost)
