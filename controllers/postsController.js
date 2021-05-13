@@ -1,3 +1,4 @@
+const post = require("../models/post");
 const Post = require("../models/post");
 
 module.exports = {
@@ -22,7 +23,8 @@ module.exports = {
     create: (req, res, next) => {
         let newPost = new Post({
             title: req.body.title,
-            description: req.body.description
+            description: req.body.description,
+            img: req.body.img
         });
         Post.create(newPost)
             .then(post => {
@@ -92,6 +94,7 @@ module.exports = {
     delete: (req, res, next) => {
         let postId = req.params.id;
         Post.findByIdAndRemove(postId)
+    
         .then(() => {
             res.locals.redirect = "/";
             next();

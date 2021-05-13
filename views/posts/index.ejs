@@ -21,17 +21,27 @@
                             </a>
                         </div>
                         <div class="card-body">
-
+                            <p class="card-text">
+                                <%= post.img %>
+                            </p>
                             <p class="card-text">
                                 <%= post.description %>
                             </p>
+                            <p class="card-text card-date">
+                                <%= post.createdAt %>
+                            </p>
                         </div>
 
-                        <div class="card-footer text-muted text-right">
-                            <a href="<%= `/posts/${post._id}/edit` %>" class="badge badge-primary">Edit</a>
-                            <a href="<%= `/posts/${post._id}/delete?_method=DELETE` %>"
-                                onClick="return confirm('Are you sure?')" class="badge badge-secondary">Delete</a>
-                        </div>
+
+                        <% if (loggedIn) { %>
+                            <% if (post._id == currentUser.post._id) { %>
+                                <div class="card-footer text-muted text-right">
+                                    <a href="<%= `/posts/${post._id}/edit` %>" class="badge badge-primary">Edit</a>
+                                    <a href="<%= `/posts/${post._id}/delete?_method=DELETE` %>"
+                                        onClick="return confirm('Are you sure?')" class="badge badge-secondary">Delete</a>
+                                </div>
+                            <% } %>
+                        <% } %>
                     </div>
                 </div>
                 <% }) %>
@@ -62,6 +72,10 @@
                             <input type="text" name="description" id="txtDescription" class="form-control"
                                 placeholder="Text" required> <br>
 
+                            <input type="file"  accept="image/*" name="image" id="file" required> <br>
+                            <p>
+                                <label for="file" style="cursor: pointer;">Upload Image</label>
+                            </p>
                             <button class="btn btn-primary" type="submit"> Post! </button>
                         </form>
                     </div>

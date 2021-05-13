@@ -1,6 +1,7 @@
 const passportLocalMongoose = require("passport-local-mongoose");
 const mongoose = require("mongoose"),
-    { Schema } = require("mongoose")
+    { Schema } = require("mongoose"),
+Post = require("./post");
 
 userSchema = new Schema({
     firstName: {
@@ -44,7 +45,8 @@ userSchema = new Schema({
     },
     securityAnswer3: {
         type: String,
-    }
+    },
+    post: [{type:mongoose.Schema.Types.ObjectId, ref: Post}]
 },
     {
         timestamps: true
