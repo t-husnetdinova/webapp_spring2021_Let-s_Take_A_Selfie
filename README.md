@@ -64,6 +64,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/image <br>
 https://www.webtrickshome.com/faq/how-to-display-uploaded-image-in-html-using-javascript <br>
 https://www.youtube.com/watch?v=YuFxE3CUTtw <br>
 https://stackoverflow.com/questions/55486103/nodejs-convert-image-between-buffer-and-string <br>
+https://stackoverflow.com/questions/36757949/json-schema-definition-for-array-of-objects <br>
 <br>
 **Instructions for running program:** Please download the code, run `npm install`, then seed the database by running `node seed.js`, then run `npm start`. <br>
 <br>
