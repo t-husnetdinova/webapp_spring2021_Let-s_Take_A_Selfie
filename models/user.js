@@ -2,6 +2,9 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const mongoose = require("mongoose"),
     { Schema } = require("mongoose"),
 Post = require("./post");
+User = require("./user");
+
+
 
 userSchema = new Schema({
     firstName: {
@@ -26,7 +29,8 @@ userSchema = new Schema({
         require: true,
         unique: true
     },
-    post: [{type: mongoose.Schema.Types.ObjectId, ref: Post}]
+    post: [{type: mongoose.Schema.Types.ObjectId, ref: Post}],
+    following: [{type: mongoose.Schema.Types.ObjectId, ref: User}]
 },
     {
         timestamps: true

@@ -137,6 +137,7 @@ module.exports = {
         if (redirectPath != undefined) res.redirect(redirectPath);
         else next();
     },
+    
     show: (req, res, next) => {
         let userId = req.params.id;
         User.findById(userId)
