@@ -26,7 +26,6 @@ userSchema = new Schema({
         require: true,
         unique: true
     },
-
     post: [{type: mongoose.Schema.Types.ObjectId, ref: Post}]
 },
     {
