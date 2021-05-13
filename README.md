@@ -60,6 +60,10 @@ https://css-tricks.com/snippets/css/using-font-face/ <br>
 https://mongoosejs.com/docs/middleware.html#pre <br>
 https://dev.to/albertomontalesi/add-dark-mode-to-your-website-with-just-a-few-lines-of-code-5baf <br>
 https://www.w3schools.com/cssref/pr_text_letter-spacing.asp <br>
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/image <br>
+https://www.webtrickshome.com/faq/how-to-display-uploaded-image-in-html-using-javascript <br>
+https://www.youtube.com/watch?v=YuFxE3CUTtw <br>
+https://stackoverflow.com/questions/55486103/nodejs-convert-image-between-buffer-and-string <br>
 <br>
 **Instructions for running program:** Please download the code, run `npm install`, then seed the database by running `node seed.js`, then run `npm start`. <br>
 <br>
