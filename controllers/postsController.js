@@ -14,19 +14,17 @@ module.exports = {
             })
     },
     indexView: (req, res) => {
-        res.render("posts/index"); //CREATE ROUTE
+        res.render("posts/index");
     },
     new: (req, res) => {
-        res.render("posts/new"); //CREATE ROUTE
+        res.render("posts/new");
     },
-
     create: (req, res, next) => {
         let newPost = new Post({
             title: req.body.title,
             description: req.body.description,
             img: req.body.img,
             hashtags: req.body.hashtags.split(" ")
-            
         });
         Post.create(newPost)
             .then(post => {

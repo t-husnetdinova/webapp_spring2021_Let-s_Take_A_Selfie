@@ -18,7 +18,6 @@ const mongoose = require("mongoose"),
                 type: Date,
                 deafault: Date.now
             },
-
             hashtags: {type: [String], index: true},
             },
         {
