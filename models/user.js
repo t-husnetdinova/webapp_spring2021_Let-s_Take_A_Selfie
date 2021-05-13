@@ -26,26 +26,6 @@ userSchema = new Schema({
         require: true,
         unique: true
     },
-
-    // Maybe remove?
-    securityQuestion1: {
-        type: String,
-    },
-    securityAnswer1: {
-        type: String,
-    },
-    securityQuestion2: {
-        type: String,
-    },
-    securityAnswer2: {
-        type: String,
-    },
-    securityQuestion3: {
-        type: String,
-    },
-    securityAnswer3: {
-        type: String,
-    },
     post: [{type:mongoose.Schema.Types.ObjectId, ref: Post}]
 },
     {
