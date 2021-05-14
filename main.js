@@ -17,7 +17,7 @@ const express = require("express"),
 
 // mongodb things
 mongoose.connect(
-    "mongodb://localhost:27017/lets_take_a_selfie",
+    process.env.MONGODB_URI || "mongodb://localhost:27017/lets_take_a_selfie",
     { useNewUrlParser: true }
 );
 mongoose.set("useCreateIndex", true);

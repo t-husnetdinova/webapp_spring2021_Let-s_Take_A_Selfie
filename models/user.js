@@ -28,7 +28,7 @@ userSchema = new Schema({
         unique: true
     },
     post: [{type: mongoose.Schema.Types.ObjectId, ref: Post}],
-    following: [{type: mongoose.Schema.Types.ObjectId, ref: User}],
+    following: [{type: mongoose.Schema.Types.ObjectId, ref: User}]
 },
     {
         timestamps: true
