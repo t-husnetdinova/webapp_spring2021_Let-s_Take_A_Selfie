@@ -23,7 +23,7 @@
                             <p class="card-date"> Posted by: <a href="#"> <%= post.postedBy %> </a>
                                 <% if (loggedIn) { %> 
                                     <% if (post.user._id != currentUser.id) { %>
-                                        <a href="/follow" class="badge badge-primary">Follow</a> </p>
+                                        <a href="#" class="badge badge-primary">Follow</a> </p>
                                     <% } %>
                                 <% } %>
                         </div>
