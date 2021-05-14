@@ -9,10 +9,12 @@ userRoutes = require("./userRoutes"),
 postRoutes = require("./postRoutes"),
 homeRoutes = require("./homeRoutes"),
 errorRoutes = require("./errorRoutes");
+apiRoutes = require("./apiRoutes");
 
 // define namespaces for routes
 router.use("/", userRoutes); // I think
 router.use("/posts", postRoutes);
+router.use("/api", apiRoutes);
 router.use("/", homeRoutes);
 router.use("/", errorRoutes);
 

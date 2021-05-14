@@ -1,5 +1,5 @@
 const passport = require("passport");
-
+httpStatus = require("http-status-codes")
 const User = require("../models/user"),
 
     getUserParams = body => {
@@ -14,6 +14,17 @@ const User = require("../models/user"),
     };
 
 module.exports = {
+    index: (req, res, next) => {
+        User.find()
+            .then(users => {
+                res.locals.users = users;
+                next();
+            })
+            .catch(error => {
+                console.log(`Error fetching user data: ${error.message} `);
+                next(error);
+            })
+    },
     postedSignUpForm: (req, res) => {
         res.render("index")
     },
@@ -137,7 +148,7 @@ module.exports = {
         if (redirectPath != undefined) res.redirect(redirectPath);
         else next();
     },
-    
+
     show: (req, res, next) => {
         let userId = req.params.id;
         User.findById(userId)
@@ -204,5 +215,63 @@ module.exports = {
             console.log(`Error loading user by ID: ${error.message}`);
             next(error);
         })
+    },
+    respondJSON: (req, res) => {
+        res.json({
+            status: httpStatus.OK,
+            data: res.locals
+        });
+    },
+    errorJSON: (error, req, res, next) => {
+        let errorObject;
+
+        if (error) {
+            errorObject = {
+                status: httpStatus.INTERNAL_SERVER_ERROR,
+                message: error.message
+            };
+        } else {
+            errorObject = {
+                status: httpStatus.INTERNAL_SERVER_ERROR,
+                message: "Unknown Error."
+            };
+        }
+        res.json(errorObject);
+    },
+    filterUserFollows: (req, res, next) => {
+        let currentUser = res.locals.currentUser;
+        if (currentUser) {
+            let mappedUsers = res.locals.users.map((user) => {
+                let userFollowed = currentUser.users.some((userFollow) => {
+                    return userFollow.equals(user._id);
+                });
+                return Object.assign(user.toObject(), { followed: userFollowed });
+            });
+            res.locals.users = mappedUsers;
+            next();
+        } else {
+            next();
+        }
+    },
+    follow: (req, res, next) => {
+        let userId = req.params.id,
+            currentUser = req.user;
+
+        if (currentUser) {
+            User.findByIdAndUpdate(currentUser, {
+                $addToSet: {
+                    users: userId
+                }
+            })
+                .then(() => {
+                    res.locals.success = true;
+                    next();
+                })
+                .catch(error => {
+                    next(error);
+                });
+        } else {
+            next(new Error("User must log in."));
+        }
     }
 };
