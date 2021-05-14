@@ -2,10 +2,10 @@
 
 ![Screenshot](public/img/smol-wink.svg)
 
-**Names:** Tammy Husnetdinova and Alex Verkest<br>
-**VIDEO:** https://www.dropbox.com/s/u666rj04hy13eei/Lets_take_a_selfie.mp4?dl=0 <br>
+**Names:** Tammy Husnetdinova and Alex Verkest<br><br>
+**VIDEO:** https://www.dropbox.com/s/u666rj04hy13eei/Lets_take_a_selfie.mp4?dl=0 <br><br>
 **Check it out:** https://lets-take-a-selfie.herokuapp.com/  <br>
-<br>
+
 <br>
 **Class:** CSCI4800-E01 <br>
 <br>
