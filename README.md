@@ -6,7 +6,6 @@
 **VIDEO:** https://www.dropbox.com/s/u666rj04hy13eei/Lets_take_a_selfie.mp4?dl=0 <br><br>
 **Check it out:** https://lets-take-a-selfie.herokuapp.com/  <br>
 
-<br>
 **Class:** CSCI4800-E01 <br>
 <br>
 **Date:** 5/10/21 <br>
