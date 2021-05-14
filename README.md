@@ -3,6 +3,9 @@
 ![Screenshot](public/img/smol-wink.svg)
 
 **Names:** Tammy Husnetdinova and Alex Verkest<br>
+**VIDEO:** https://www.dropbox.com/s/u666rj04hy13eei/Lets_take_a_selfie.mp4?dl=0 <br>
+**Check it out:** https://lets-take-a-selfie.herokuapp.com/  <br>
+<br>
 <br>
 **Class:** CSCI4800-E01 <br>
 <br>
@@ -76,6 +79,6 @@ https://stackoverflow.com/questions/11509830/how-to-add-color-to-githubs-readme-
 <br>
 **Instructions for running program:** Please download the code, run `npm install`, then seed the database by running `node seed.js`, then run `npm start`. <br>
 <br>
-**Check it out:** https://lets-take-a-selfie.herokuapp.com/  <br>
+
 <br>
 
