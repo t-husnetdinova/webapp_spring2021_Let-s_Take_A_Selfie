@@ -4,14 +4,14 @@
     </a>
     <% } %>
 
-        <div class="card mx-auto homepage text-center">
-            <div class="card-body text-center">
-
-            </div>
-        </div>
-
         <div class="text-center asdonuts">
             <h2> Feed</h2>
+        </div>
+
+        <div class="card mx-auto homepage text-center">
+            <div class="card-body text-center">
+                <h4 class="asdonuts"> Trending Hashtags </h4>
+            </div>
         </div>
 
         <div>
@@ -20,7 +20,12 @@
                     <div class="card mx-auto homepage text-left">
                         <div class="card-header">
                             <a href="<%= `/posts/${post._id}` %>"> <%= post.title %> </a>
-                            <p class="card-date"> Posted by: <a href="#"> <%= post.postedBy %> </a> </p>
+                            <p class="card-date"> Posted by: <a href="#"> <%= post.postedBy %> </a>
+                                <% if (loggedIn) { %> 
+                                    <% if (post.user._id != currentUser.id) { %>
+                                        <a href="/follow" class="badge badge-primary">Follow</a> </p>
+                                    <% } %>
+                                <% } %>
                         </div>
                         <div class="card-body">
                             <p class="card-text">

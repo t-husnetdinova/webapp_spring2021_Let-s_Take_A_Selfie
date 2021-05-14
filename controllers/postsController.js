@@ -107,5 +107,28 @@ module.exports = {
             console.log(`Error loading post by ID: ${error.message}`);
             next(error);
         })
+    },
+    
+    follow: (req, res, next) => {
+        let userId = req.params.user._id,
+        currentUser = req.user;
+
+    if (currentUser) {
+        User.findByIdAndUpdate(currentUser, {
+            $addToSet: {
+                following: userId   
+            }
+        })
+            .then(() => {
+                res.locals.success = true;
+                next();
+            })
+            .catch(error => {
+                next(error);
+            });
+    } else {
+        next(new Error("User must log in."));
+    }
+    res.locals.redirect = "/";
     }
 }

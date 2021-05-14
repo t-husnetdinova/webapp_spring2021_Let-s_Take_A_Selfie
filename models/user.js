@@ -4,8 +4,6 @@ const mongoose = require("mongoose"),
 Post = require("./post");
 User = require("./user");
 
-
-
 userSchema = new Schema({
     firstName: {
         type: String,
@@ -30,7 +28,7 @@ userSchema = new Schema({
         unique: true
     },
     post: [{type: mongoose.Schema.Types.ObjectId, ref: Post}],
-    following: [{type: mongoose.Schema.Types.ObjectId, ref: User}]
+    following: [{type: mongoose.Schema.Types.ObjectId, ref: User}],
 },
     {
         timestamps: true
