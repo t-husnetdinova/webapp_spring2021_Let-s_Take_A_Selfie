@@ -126,6 +126,7 @@ module.exports = {
         successRedirect: "/",
         successFlash: "Logged in!"
     }),
+
     logout: (req, res, next) => {
         req.logout();
         req.flash("success", "Successfully logged out!");
@@ -137,9 +138,9 @@ module.exports = {
         if (redirectPath != undefined) res.redirect(redirectPath);
         else next();
     },
-    
+
     show: (req, res, next) => {
-        let userId = req.params.id;
+        let userId = req.params._id;
         User.findById(userId)
             .then(user => {
                 res.locals.user = user;
@@ -150,9 +151,11 @@ module.exports = {
                 next(error);
             })
     },
+
     showView: (req, res) => {
-        res.render("users/show")
+        res.render("users/show");
     },
+
     edit: (req, res, next) => {
         let userId = req.params.id;
         User.findById(userId)
