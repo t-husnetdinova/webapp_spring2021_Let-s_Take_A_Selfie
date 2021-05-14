@@ -76,6 +76,6 @@ https://stackoverflow.com/questions/11509830/how-to-add-color-to-githubs-readme-
 <br>
 **Instructions for running program:** Please download the code, run `npm install`, then seed the database by running `node seed.js`, then run `npm start`. <br>
 <br>
-**Check it out:** https://lets-take-a-selfie.herokuapp.com/ COMING SOON <br>
+**Check it out:** https://lets-take-a-selfie.herokuapp.com/  <br>
 <br>
 
